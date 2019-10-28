@@ -1,5 +1,5 @@
 <?php
-$istheSame = false;
+$isValidUser = false;
 $inputUser = $_POST['inputUser'];
 $inputPost = $_POST['inputPosts'];
 
@@ -11,24 +11,24 @@ if ($mysqli->connect_errno) {
     exit();
 }
 
-$query = "SELECT use_id FROM Users ORDER by user_id";
+$query = "SELECT user_id FROM Users ORDER by user_id";
 
 if ($result = $mysqli->query($query)) {
 
     /* fetch associative array */
     while ($row = $result->fetch_assoc()) {
-        if($row["user_id"] == $_POST["inputBox"]){
-            printf("user already exists");
-            $istheSame = true;
+        if($row["user_id"] == $inputUser){
+            //printf("user already exists");
+            $isValidUser = true;
         }
 
         //printf ("%s\n", $row["user_id"]);
     }
-    if($istheSame == false){
-     $query2 = "INSERT INTO Users (user_id) VALUES ('$input')";
+    if($isValidUser == true){
+        $query2 = "INSERT INTO Posts (author_id, content) VALUES ('$inputUsers','$inputPost')";
      
      if($mysqli->query($query2)){
-        printf("successfully added\n");
+        printf("successfully added post\n");
      }
         
     }
