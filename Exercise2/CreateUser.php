@@ -7,13 +7,13 @@ if ($mysqli->connect_errno) {
     exit();
 }
 
-$query = "SELECT Name, CountryCode FROM City ORDER by ID DESC LIMIT 50,5";
+$query = "SELECT user_id FROM Users ORDER by user_id";
 
 if ($result = $mysqli->query($query)) {
 
     /* fetch associative array */
     while ($row = $result->fetch_assoc()) {
-        printf ("%s (%s)\n", $row["Name"], $row["CountryCode"]);
+        printf ("%s\n", $row["user_id"]);
     }
 
     /* free result set */
