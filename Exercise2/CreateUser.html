@@ -10,10 +10,20 @@
         <div>
             Enter your new username:<br>
             <input type = "text" placeholder="username" id = "inputBox" name = "inputBox">
-            <input type = "submit" value = "Create User" id = "createButton">
+            <input type = "button" value = "Create User" id = "createButton" onclick = "verifyText();">
         </div>
 
-
+        <script>
+        function verifyText(){
+            if(document.getElementById("inputBox").value == ""){
+                alert("Please type in a username into the text field");
+            }
+            else{
+                console.log("username not empty");
+                document.getElementById("subForm").submit();
+            }
+        }
+        </script>
     </form>
 
     </body>
