@@ -4,8 +4,35 @@
     </head>
 
     <body>
-    Exercise 3 html page
+        <form action="CreatePosts.php" method = "POST" id = "subForm">
+            <div>
+                Enter your username:<br>
+                <input type = "text" placeholder="username" id = "inputUser" name = "inputUser">
+            </div>
+            <div>
+                Enter your post below:<br>
+                <input type = "text" placeholder="A long time ago..." id = "inputPosts" name = "inputPosts">
+            </div>
+            <input type = "button" id = "sendForm" value = "Confirm Submission" onclick = "verifyText();">
 
+        </form>
+        <script>
+            function verifyText(){
+                if(document.getElementById("inputUser").value == ""){
+                    alert("Please enter a username");
+                }
+                else if(document.getElementById("inputPosts").value == ""){
+                    alert("Please enter a post message");
+                }
+                else{
+                    console.log("all inputs are filled");
+                    document.getElementById("subForm").submit();
+                }
+                
+                }
+            
+        
+        </script>
     </body>
 
 
