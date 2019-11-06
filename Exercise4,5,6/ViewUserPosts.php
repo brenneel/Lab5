@@ -13,7 +13,7 @@
         exit();
     }
 
-    $query = "SELECT author_id FROM Posts ORDER by author_id";
+    $query = "SELECT * FROM Posts ORDER by author_id";
 
     if ($result = $mysqli->query($query)) {
 
