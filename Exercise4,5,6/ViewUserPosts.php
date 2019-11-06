@@ -1,28 +1,39 @@
 <?php
+    $input = $_POST['selectBox'];
+    echo ("<body>");
+    echo ("<h1 style = 'text-align:center'>Here are the posts from PUT USER HERE</h1>");
+    echo ("<table>");
 
-$mysqli = new mysqli("mysql.eecs.ku.edu", "ethanlbrenner", "brenner3280", "ethanlbrenner");
+    $mysqli = new mysqli("mysql.eecs.ku.edu", "ethanlbrenner", "brenner3280", "ethanlbrenner");
 
-/* check connection */
-if ($mysqli->connect_errno) {
-    printf("Connect failed: %s\n", $mysqli->connect_error);
-    exit();
-}
-
-$query = "SELECT user_id FROM Users ORDER by user_id";
-
-if ($result = $mysqli->query($query)) {
-
-    /* fetch associative array */
-    while ($row = $result->fetch_assoc()) {
-       
-
-        //printf ("%s\n", $row["user_id"]);
+    /* check connection */
+    if ($mysqli->connect_errno) {
+        printf("Connect failed: %s\n", $mysqli->connect_error);
+        exit();
     }
 
-    /* free result set */
-    $result->free();
-}
+    $query = "SELECT author_id FROM Posts ORDER by author_id";
 
-/* close connection */
-$mysqli->close();
+    if ($result = $mysqli->query($query)) {
+
+        /* fetch associative array */
+        while ($row = $result->fetch_assoc()) {
+            $tempPost = $row['content'];
+            if($row['author_id'] == $input){
+            echo ("<tr>
+                    <td>$tempPost</td>
+                    </tr>");
+
+            }
+            //printf ("%s\n", $row["user_id"]);
+        }
+
+        /* free result set */
+        $result->free();
+    }
+
+    /* close connection */
+    $mysqli->close();
+
+    echo ("</table></body>");
 ?>
