@@ -6,8 +6,9 @@
     <body style = "background-color:lightslategray">
         <h1 style = "text-align:center">View User Posts</h1>
         <?php
-        echo ("<div style = 'text-align:center;margin-left:auto;margin-right:auto;'>");
-        echo ("<select style = 'font-size:16pt;color:crimson;font-weight:bold'>");
+            echo ("<div style = 'text-align:center;margin-left:auto;margin-right:auto;'>");
+            echo ("<form id = 'myForm' action = 'ViewUserPosts.php' method = 'post'>");
+            echo ("<select style = 'font-size:16pt;color:crimson;font-weight:bold'>");
             /* getting the table from the database */
             $mysqli = new mysqli("mysql.eecs.ku.edu", "ethanlbrenner", "brenner3280", "ethanlbrenner");
             
@@ -36,8 +37,9 @@
             /* close connection */
             $mysqli->close();
                 
-
-        echo ("</select></div>");
+            echo ("</select><br><br>");
+            echo ("<input type = 'button' value = 'Select User'>");
+            echo ("</form></div>");
         ?>
         
     </body>
