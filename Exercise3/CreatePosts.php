@@ -25,7 +25,7 @@ if ($result = $mysqli->query($query)) {
         //printf ("%s\n", $row["user_id"]);
     }
     if($isValidUser == true){
-        $query2 = "INSERT INTO Posts (author_id, content) VALUES ('$inputUsers','$inputPost')";
+        $query2 = "INSERT INTO Posts (author_id, content) VALUES ('$inputUser','$inputPost')";
      
      if($mysqli->query($query2)){
         printf("successfully added post\n");
