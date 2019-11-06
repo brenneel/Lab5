@@ -1,10 +1,11 @@
 <?php
 /*printing out the start of the table page*/
+echo "<body style = 'background-color:lightslategray'>";
 echo "<h1 style = 'text-align:center'> List of Users</h1>";
-
-    echo "<table>";
+    echo "<div style = 'text-align:center'>";
+    echo "<table style = 'text-align:center;margin-left:auto;margin-right:auto; border-color:white' border = '1'>";
     echo "<tr>
-            <td>User ID</td>
+            <td style = 'font-weight:bold; font-size: 20pt'>User ID</td>
         </tr>";
 
 
@@ -25,7 +26,7 @@ if ($result = $mysqli->query($query)) {
     while ($row = $result->fetch_assoc()) {
         $x = $row["user_id"];
         echo "<tr>
-                <td> $x </td>
+                <td style = 'font-size:16pt;color:darkblue;font-weight:bold'> $x </td>
             </tr>";
 
         //printf ("%s\n", $row["user_id"]);
@@ -40,7 +41,7 @@ $mysqli->close();
 
 
 
-
-    echo "</table>";
+    
+    echo "</div></table></body>";
 
 ?>
