@@ -24,20 +24,21 @@
                 exit();
             }
             
-            $query = "SELECT * FROM Posts ORDER by author_id";
+            $query = "SELECT * FROM Posts ORDER by post_id";
             
             if ($result = $mysqli->query($query)) {
-            
+                
                 /* fetch associative array */
                 while ($row = $result->fetch_assoc()) {
                     $auth = $row['author_id'];
                     $content = $row['content'];
-                    $postId = $row['post_id'];
+                  $id = $row["post_id"];
+                  echo $id;
                     echo ("<tr>");
-                    echo ("<td><input type = 'checkbox' name = '$postId'></td>");
+                    echo ("<td><input type = 'checkbox' name = 'inputBox[]' value = '$id'></td>");
                     echo("<td>$auth</td><td>$content</td>");
                     echo("</tr>");
-            
+                  
                     //printf ("%s\n", $row["user_id"]);
                 }
             
