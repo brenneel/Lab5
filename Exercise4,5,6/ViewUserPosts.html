@@ -25,7 +25,7 @@
                 /* fetch associative array */
                 while ($row = $result->fetch_assoc()) {
                     $x = $row["user_id"];
-                    echo "<option value = '$x'>$x</option>";
+                    echo "<option name = '$x'>$x</option>";
             
                     //printf ("%s\n", $row["user_id"]);
                 }
