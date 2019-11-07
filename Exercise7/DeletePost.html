@@ -3,11 +3,11 @@
 
     </head>
 
-    <body>
+    <body style = "background-color:lightslategray">
         <h1 style = "text-align:center">Mark Posts for Deletion</h1>
-        <div style = "margin: 0 auto;text-align:center">
+        <div style = 'margin:0 auto;text-align:center'>
         <form id = "myForm" action="DeletePost.php" method = "post">
-            <table style = "text-align:center" border = '1'>
+            <table style = "text-align:center; margin: 0 auto;border-color:white" border = '1' >
                 <tr>
                     <th> </th>
                     <th>Author_Id</th>
@@ -32,8 +32,7 @@
                 while ($row = $result->fetch_assoc()) {
                     $auth = $row['author_id'];
                     $content = $row['content'];
-                  $id = $row["post_id"];
-                  echo $id;
+                    $id = $row["post_id"];
                     echo ("<tr>");
                     echo ("<td><input type = 'checkbox' name = 'inputBox[]' value = '$id'></td>");
                     echo("<td>$auth</td><td>$content</td>");
@@ -53,7 +52,7 @@
 
 
             </table>
-        
+            <br><br>
             <input type = "submit" id = "sendButton" value = "Delete Marked Posts">
         </form>
     </div>

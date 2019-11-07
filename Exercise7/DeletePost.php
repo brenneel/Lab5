@@ -1,7 +1,7 @@
 <?php
-    echo("<h1 style = 'text-align:center'>Posts Successfully Deleted</h1>");
+    echo("<body style = 'background-color:lightslategray'><h1 style = 'text-align:center'>Posts Successfully Deleted</h1>");
 
-    echo("<table><tr><th>Deleted Post Id's</th></tr>");
+    echo("<table border = '1' style = 'text-align:center;margin-left:auto;margin-right:auto; border-color:white'><tr><th>Deleted Post Id's</th></tr>");
 
             /* getting the table from the database */
             $mysqli = new mysqli("mysql.eecs.ku.edu", "ethanlbrenner", "brenner3280", "ethanlbrenner");
@@ -12,19 +12,19 @@
                 exit();
             }
             
-            $query = "SELECT * FROM Posts ORDER by post_id";
+            $query = "SELECT * FROM Posts ORDER by post_id DESC";
             
             if ($result = $mysqli->query($query)) {
             $inputBox = $_POST['inputBox'];
                 /* fetch associative array */
                 while ($row = $result->fetch_assoc()) {
                     $postId = $row['post_id'];
-                    $num = count($inputBox);
-                   for($i = 0; $i < $num; $i ++){
+                   // $num = $row['post_id'];
+                   for($i = 0; $i <= $postId; $i ++){
                        if($inputBox[$i] == $postId){
-                           $query2 = "DELETE FROM Posts WHERE post_id ='$i'";
+                           $query2 = "DELETE FROM Posts WHERE post_id ='$postId'";
                            if($mysqli->query($query2)){
-                               printf("successfully deleted\n");
+                               echo("<tr><td>$postId</td></tr>");
                            }
                        }
                    }
