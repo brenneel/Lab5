@@ -32,6 +32,9 @@ if ($result = $mysqli->query($query)) {
      }
         
     }
+    else{
+        printf("username does not exist. The post was not saved");
+    }
 
     /* free result set */
     $result->free();
